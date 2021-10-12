@@ -1,0 +1,19 @@
+{
+  "name": "cyanide",
+  "version": "1.0.0",
+  "description": "Official Cyanium Discord Bot",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "alexium_",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^13.1.0",
+    "fs": "^0.0.1-security",
+    "humanize-duration": "^3.27.0",
+    "mathjs": "^9.5.0",
+    "mongoose": "^6.0.10",
+    "ms": "^3.0.0-canary.1"
+  }
+}
