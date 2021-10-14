@@ -27,6 +27,7 @@ module.exports = {
         } else {
             if(target.id == message.author.id){
                 thisuserhas = `You have`
+                target2 = message.author
                 target3 = `Your`
             } else {
                 target2 = target.user
