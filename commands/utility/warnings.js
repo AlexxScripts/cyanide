@@ -21,10 +21,10 @@ module.exports = {
         if(!target){
             target = message.author
             target2 = target
-            thisuserhas = `${target} has`
+            thisuserhas = `You have`
         } else {
             target2 = target.user
-            thisuserhas = `You have`
+            thisuserhas = `${target} has`
         }
 
         db.findOne({ GuildID: message.guild.id, UserID: target.id, UserTag: target2.tag }, async (err, data) => {
