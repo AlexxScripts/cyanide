@@ -7,7 +7,7 @@ module.exports = {
     usage: `${prefix}warnings {user}`,
     aliases: ['warns'],
     inProgress: true,
-    involvesModeration: true,
+    involvesModeration: false,
     permission: [],
     category: 'UTILITY',
     cooldown: 0,
