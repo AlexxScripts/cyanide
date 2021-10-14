@@ -27,8 +27,7 @@ bot.once('ready', async () => {
 
     mongoose.connect(process.env.mongoURI, {
         useNewUrlParser: true,
-        useUnifiedTopology: true,
-        userFindAndModify: false
+        useUnifiedTopology: true
     }).then(() => {
         console.log('Connected to MongoDB!')
     }).catch((err) => {
