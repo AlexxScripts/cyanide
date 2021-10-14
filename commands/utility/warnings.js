@@ -24,7 +24,7 @@ module.exports = {
             thisuserhas = `You have`
         } else {
             target2 = target.user
-            thisuserhas = `${target} has`
+            thisuserhas = `${target.tag} has`
         }
 
         db.findOne({ GuildID: message.guild.id, UserID: target.id, UserTag: target2.tag }, async (err, data) => {
