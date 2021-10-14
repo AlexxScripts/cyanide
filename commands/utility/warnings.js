@@ -44,7 +44,7 @@ module.exports = {
                 .setAuthor(bot.user.username, bot.user.displayAvatarURL())
                 .setTitle(`${target3} Warnings'`)
                 .setDescription(`${data.Content.map(
-                    (w, i) => `Warn ID: ${i + 1}\nModerator: ${w.ModeratorTag}\nReason: ${w.Reason}\nDate: ${w.Date}\n`
+                    (w, i) => `Warn ID: ${i + 1}\nModerator: ${w.ModeratorTag}\nReason: ${w.Reason}\nDate: ${w.Date}\n\n`
                 ).join(' ')}`)
 
                 message.channel.send({ embeds: [warningsEmbed] })
