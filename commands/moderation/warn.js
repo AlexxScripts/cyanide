@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 const db = require('../../models/warningdb')
 const currentDate = new Date()
+const { version, prefix } = require('../../config.json')
 
 module.exports = {
     name: 'warn',
