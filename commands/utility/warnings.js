@@ -27,7 +27,7 @@ module.exports = {
             thisuserhas = `You have`
         }
 
-        db.findOne({ GuildID: message.guild.id, UserID: target.id, UserTag: target.user.tag }, async (err, data) => {
+        db.findOne({ GuildID: message.guild.id, UserID: target.id, UserTag: target2.tag }, async (err, data) => {
             if(err) throw err
             if(data){
 
