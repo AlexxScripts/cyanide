@@ -50,5 +50,6 @@ module.exports = {
         }
         if(no.includes(choice)) return message.channel.send({ embeds: [cancelEmbed] })
         if(!yes.includes(choice) || !no.includes(choice)) return message.channel.send({ embeds: [cancelEmbed] })
+        message.react('✅')
     }
 }

@@ -1,8 +1,7 @@
 const { Client, Intents } = require('discord.js')
 const Discord = require('discord.js')
-const mongoose = require('mongoose')
 const { readdirSync, read, readdir } = require('fs')
-const { prefix, version } = require('./config.json')
+const { prefix, version, token } = require('./config.json')
 const ms = require('ms')
 const duration = require('humanize-duration')
 const bot = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, "GUILD_MEMBERS"] })
@@ -30,7 +29,6 @@ bot.on('messageCreate', async message => {
     if(message.author.bot) return
 
     if(message.content.startsWith(prefix)){
-        const creator = bot.users.cache.get('514720382779916318')
         const args = message.content.slice(prefix.length).trim().split(/ +/)
         const commandName = args.shift().toLowerCase()
         const command = bot.commands.get(commandName) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName))
@@ -38,11 +36,11 @@ bot.on('messageCreate', async message => {
         
         if(command){
 
-            if(command.name == 'kickall'){
-                if(message.author.id != creator.id){
+            if(command.category == 'SPECIAL'){
+                if(message.author.id == '705014771694567475' || '514720382779916318'){} else {
                     const ownerOnlyEmbed = new Discord.MessageEmbed()
                     .setAuthor(bot.user.username, bot.user.displayAvatarURL())
-                    .addField('Owner Only!', `Only my creator, ${creator} (${creator.tag}), has access to this!`)
+                    .addField('Owners Only!', `Only Amy or Alex has access to this!`)
                     .setFooter(`${message.author.tag} • ${version}`)
                     .setColor('FF0000')
                     message.channel.send({ embeds: [ownerOnlyEmbed] })
@@ -50,8 +48,7 @@ bot.on('messageCreate', async message => {
                 }
             }
 
-            if(message.author.id != creator.id){
-
+            if(message.author.id == '705014771694567475' || '514720382779916318'){} else {
                 if(command.inProgress){
                     if(message.author.id != '514720382779916318'){
                         const inProgress = new Discord.MessageEmbed()

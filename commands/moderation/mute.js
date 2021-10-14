@@ -44,7 +44,6 @@ module.exports = {
         .setFooter(`${version}`)
         .setColor('00FF00')
 
-        if(target.id == bot.user.id) return message.channel.send({ embeds: [cannotMuteMe] })
         if(target.roles.cache.has(role)) return message.channel.send({ embeds: [userAlreadyMuted] })
 
         try {

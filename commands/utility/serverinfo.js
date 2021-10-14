@@ -1,6 +1,9 @@
+const Discord = require('discord.js')
+const { version, prefix } = require('../../config.json')
+
 module.exports = {
     name: 'serverinfo',
-    usage: 'serverinfo',
+    usage: `${prefix}serverinfo`,
     aliases: ['si', 'infoserver'],
     inProgress: true,
     involvesModeration: false,
