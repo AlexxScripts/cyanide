@@ -44,7 +44,7 @@ module.exports = {
                 .setAuthor(bot.user.username, bot.user.displayAvatarURL())
                 .setTitle(`${target3} Warnings`)
                 .setDescription(`\`\`\`\n${data.Content.map(
-                    (w, i) => `Warn ID: ${i + 1}\nModerator: ${w.ModeratorTag}\nReason: ${w.Reason}\nDate: ${w.Date}\n\`\`\`\n\n`
+                    (w, i) => `Warn ID: ${i + 1}\nModerator: ${w.ModeratorTag}\nReason: ${w.Reason}\nDate: ${w.Date}\n\n\`\`\``
                 ).join(' ')}`)
                 .setFooter(`${message.author.tag} • ${version}`)
                 .setColor('RANDOM')
