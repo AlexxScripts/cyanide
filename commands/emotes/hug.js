@@ -13,26 +13,34 @@ module.exports = {
     description: ['Hug your friends!'],
 
     async run (bot, message, args){
-        // const target = message.mentions.members.first() || message.guild.members.cache.get(args[0])
-        // const gifs = ['https://tenor.com/view/mochi-peachcat-mochi-peachcat-hug-pat-gif-19092449', 
-        //               'https://tenor.com/view/puuung-cute-hug-love-gif-13113601',
-        //               'https://tenor.com/view/a-lovely-tuji-hug-couple-in-love-heart-gif-17750778',
-        //               'https://tenor.com/view/milk-and-mocha-hug-love-heart-couple-gif-17258498',
-        //               'https://tenor.com/view/milk-and-mocha-bear-couple-line-hug-cant-breathe-gif-12687187',
-        //               'https://tenor.com/view/poke-hug-sleep-pokehug-gif-19468780',
-        //               'https://tenor.com/view/milk-and-mocha-hug-cute-kawaii-love-gif-12535134']
-        // const gifRandomized = gifs[Math.floor(Math.random() * gifs.length)]
+        const target = message.mentions.members.first() || message.guild.members.cache.get(args[0])
+        const gifs = ['https://tenor.com/view/mochi-peachcat-mochi-peachcat-hug-pat-gif-19092449', 
+                      'https://tenor.com/view/puuung-cute-hug-love-gif-13113601',
+                      'https://tenor.com/view/a-lovely-tuji-hug-couple-in-love-heart-gif-17750778',
+                      'https://tenor.com/view/milk-and-mocha-hug-love-heart-couple-gif-17258498',
+                      'https://tenor.com/view/milk-and-mocha-bear-couple-line-hug-cant-breathe-gif-12687187',
+                      'https://tenor.com/view/poke-hug-sleep-pokehug-gif-19468780',
+                      'https://tenor.com/view/milk-and-mocha-hug-cute-kawaii-love-gif-12535134']
+        const gifRandomized = gifs[Math.floor(Math.random() * gifs.length)]
 
-        // const titles = ['So cute!', `${message.author.username} hugged ${target.user.username}!`, 'Kawaii!', 'Feeling comfy?', 'How wholesome!']
-        // const titlesRandomized = titles[Math.floor(Math.random() * titles.length)]
+        const titles = ['So cute!', `${message.author.username} hugged ${target.user.username}!`, 'Kawaii!', 'Feeling comfy?', 'How wholesome!', 'Adorable!']
+        const titlesRandomized = titles[Math.floor(Math.random() * titles.length)]
 
-        // const hugEmbed = new Discord.MessageEmbed()
-        // .setAuthor(bot.user.username, bot.user.displayAvatarURL())
-        // .setTitle(`${titlesRandomized}`)
-        // .setImage(gifRandomized)
-        // .setFooter(`${message.author.tag} • ${version}`)
-        // .setColor('RANDOM')
+        const noTargetEmbed = new Discord.MessageEmbed()
+        .setAuthor(bot.user.username, bot.user.displayAvatarURL())
+        .addField('Incorrect Usage!', `\`\`\`${module.exports.usage}\`\`\``)
+        .setFooter(`${message.author.tag} • ${version}`)
+        .setColor('FF0000')
 
-        // message.channel.send({ embeds: [hugEmbed] })
+        if(!target) return message.channel.send({ embeds: [noTargetEmbed] })
+
+        const hugEmbed = new Discord.MessageEmbed()
+        .setAuthor(bot.user.username, bot.user.displayAvatarURL())
+        .setTitle(`${titlesRandomized}`)
+        .setImage(gifRandomized)
+        .setFooter(`${message.author.tag} • ${version}`)
+        .setColor('RANDOM')
+
+        message.channel.send({ embeds: [hugEmbed] })
     }
 }
