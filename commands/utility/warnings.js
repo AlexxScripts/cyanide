@@ -26,7 +26,7 @@ module.exports = {
             thisuserhas = `You have`
         } else {
             if(target.id == message.author.id){
-                thisuserhas = `${target.user.tag} has`
+                thisuserhas = `You have`
                 target3 = `Your`
             } else {
                 target2 = target.user
