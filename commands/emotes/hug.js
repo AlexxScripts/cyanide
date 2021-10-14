@@ -14,13 +14,13 @@ module.exports = {
 
     async run (bot, message, args){
         const target = message.mentions.members.first() || message.guild.members.cache.get(args[0])
-        const gifs = ['https://tenor.com/view/mochi-peachcat-mochi-peachcat-hug-pat-gif-19092449', 
-                      'https://tenor.com/view/puuung-cute-hug-love-gif-13113601',
-                      'https://tenor.com/view/a-lovely-tuji-hug-couple-in-love-heart-gif-17750778',
-                      'https://tenor.com/view/milk-and-mocha-hug-love-heart-couple-gif-17258498',
-                      'https://tenor.com/view/milk-and-mocha-bear-couple-line-hug-cant-breathe-gif-12687187',
+        const gifs = ['https://tenor.com/view/milk-and-mocha-hug-love-heart-couple-gif-17258498', 
                       'https://tenor.com/view/poke-hug-sleep-pokehug-gif-19468780',
-                      'https://tenor.com/view/milk-and-mocha-hug-cute-kawaii-love-gif-12535134']
+                      'https://tenor.com/view/hanakokun-yashiro-hug-anime-gif-16699836',
+                      'https://tenor.com/view/toilet-bound-hanakokun-anime-anime-hug-gif-16831471',
+                      'https://tenor.com/view/milk-and-mocha-hug-cute-kawaii-love-gif-12535134',
+                      'https://tenor.com/view/a-whisker-away-hug-love-anime-embrace-gif-17694740',
+                      'https://tenor.com/view/cute-cat-couple-hug-love-gif-14184904']
         const gifRandomized = gifs[Math.floor(Math.random() * gifs.length)]
 
         const noTargetEmbed = new Discord.MessageEmbed()
