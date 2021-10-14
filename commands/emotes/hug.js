@@ -22,8 +22,6 @@ module.exports = {
                       'https://tenor.com/view/poke-hug-sleep-pokehug-gif-19468780',
                       'https://tenor.com/view/milk-and-mocha-hug-cute-kawaii-love-gif-12535134']
         const gifRandomized = gifs[Math.floor(Math.random() * gifs.length)]
-
-        const titles = ['So cute!', `${message.author.username} hugged ${target.username}!`, 'Kawaii!', 'Feeling comfy?', 'How wholesome!', 'Adorable!']
         const titlesRandomized = titles[Math.floor(Math.random() * titles.length)]
 
         const noTargetEmbed = new Discord.MessageEmbed()
@@ -33,6 +31,8 @@ module.exports = {
         .setColor('FF0000')
 
         if(!target) return message.channel.send({ embeds: [noTargetEmbed] })
+
+        const titles = ['So cute!', `${message.author.username} hugged ${target.user.username}!`, 'Kawaii!', 'Feeling comfy?', 'How wholesome!', 'Adorable!']
 
         const hugEmbed = new Discord.MessageEmbed()
         .setAuthor(bot.user.username, bot.user.displayAvatarURL())
