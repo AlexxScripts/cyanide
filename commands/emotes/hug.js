@@ -23,7 +23,7 @@ module.exports = {
                       'https://tenor.com/view/milk-and-mocha-hug-cute-kawaii-love-gif-12535134']
         const gifRandomized = gifs[Math.floor(Math.random() * gifs.length)]
 
-        const titles = ['So cute!', `${message.author.username} hugged ${target.user.username}!`, 'Kawaii!', 'Feeling comfy?', 'How wholesome!', 'Adorable!']
+        const titles = ['So cute!', `${message.author.username} hugged ${target.username}!`, 'Kawaii!', 'Feeling comfy?', 'How wholesome!', 'Adorable!']
         const titlesRandomized = titles[Math.floor(Math.random() * titles.length)]
 
         const noTargetEmbed = new Discord.MessageEmbed()
