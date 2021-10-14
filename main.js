@@ -4,6 +4,7 @@ const { readdirSync, read, readdir } = require('fs')
 const { prefix, version, token } = require('./config.json')
 const ms = require('ms')
 const duration = require('humanize-duration')
+const mongoose = require('mongoose')
 const bot = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, "GUILD_MEMBERS"] })
 const commandFolders = readdirSync('./commands')
 const commandTimeout = new Discord.Collection()
@@ -23,6 +24,16 @@ bot.once('ready', async () => {
     const files = bot.commands.map((e) => e.name)
     console.log(files)
     console.log(`${bot.commands.size} commands initialized!`)
+
+    mongoose.connect(process.env.mongoURI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        userFindAndModify: false
+    }).then(() => {
+        console.log('Connected to MongoDB!')
+    }).catch((err) => {
+        console.log(err)
+    })
 })
 
 bot.on('messageCreate', async message => {
