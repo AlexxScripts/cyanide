@@ -52,6 +52,8 @@ module.exports = {
         .setAuthor(bot.user.username, bot.user.displayAvatarURL())
         .addField('Watch it!', `${target} has been warned!`)
         .addField('Reason', `\`\`\`${reason}\`\`\``)
+        .setFooter(`${message.author.tag} • ${version}`)
+        .setColor('00FF00')
 
         message.channel.send({ embeds: [warnEmbed] })
     }
