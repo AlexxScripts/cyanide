@@ -3,13 +3,13 @@ const db = require('../../models/warningdb')
 const { version, prefix } = require('../../config.json')
 
 module.exports = {
-    name: 'warn',
-    usage: `${prefix}warn [user] {reason}`,
-    aliases: [],
+    name: 'warnings',
+    usage: `${prefix}warnings {user}`,
+    aliases: ['warns'],
     inProgress: true,
     involvesModeration: true,
-    permission: 'MANAGE_MESSAGES',
-    category: 'MODERATION',
+    permission: [],
+    category: 'UTILITY',
     cooldown: 0,
     description: 'Gives a warning to a user.',
 
