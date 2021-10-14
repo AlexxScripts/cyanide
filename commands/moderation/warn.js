@@ -16,7 +16,7 @@ module.exports = {
 
     async run(bot, message, args){
         const target = message.mentions.members.first() || message.guild.members.cache.get(args[0])
-        const reason = args.slice(1).join(' ')
+        let reason = args.slice(1).join(' ')
         const date = currentDate.toLocaleDateString()
         if(!reason) reason = 'Unspecified'
 
