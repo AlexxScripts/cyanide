@@ -6,7 +6,7 @@ module.exports = {
     name: 'warnings',
     usage: `${prefix}warnings {user}`,
     aliases: ['warns'],
-    inProgress: true,
+    inProgress: false,
     involvesModeration: false,
     permission: [],
     category: 'UTILITY',
@@ -45,7 +45,7 @@ module.exports = {
                 .setTitle(`${target3} Warnings`)
                 .setDescription(`${data.Content.map(
                     (w, i) => `\`\`\`Warn ID: ${i + 1}\nModerator: ${w.ModeratorTag}\nReason: ${w.Reason}\nDate: ${w.Date}\n\n\`\`\``
-                ).join(' ')}`)
+                ).join('\n')}`)
                 .setFooter(`${message.author.tag} • ${version}`)
                 .setColor('RANDOM')
 
