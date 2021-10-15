@@ -48,7 +48,7 @@ bot.on('messageCreate', async message => {
         .setDescription('Desiring a colour for your name? React to a colour of your choice below!')
         .setFooter(`${version}`)
         .setColor('00FFFF')
-        bot.channels.cache.get('896779558399905813').send(embed)
+        bot.channels.cache.get('896779558399905813').send({ embeds: [embed] })
     }
 
     if(message.content.startsWith(prefix)){
