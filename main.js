@@ -143,7 +143,7 @@ bot.on('messageCreate', async message => {
                     if(command.name != 'unmute' || 'kick' || 'ban'){
                         if(target.permissions.has('ADMINISTRATOR')) return message.channel.send({ embeds: [ cannotHarmAdminEmbed ]})
                     }
-                    if(message.author.id =! '514720382779916318'){
+                    if(message.author.id != '514720382779916318'){
                         if(target.roles.highest.position >= message.member.roles.highest.position) return message.channel.send({ embeds: [involvesHierarchyEmbed] })
                     }
                     if(target.roles.highest.position >= message.guild.me.roles.highest.position) return message.channel.send({ embeds: [involvesHierarchyEmbed2] })
