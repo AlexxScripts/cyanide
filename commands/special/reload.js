@@ -25,7 +25,7 @@ module.exports = {
 
         const reloadEmbed = new Discord.MessageEmbed()
         .setAuthor(bot.user.username, bot.user.displayAvatarURL())
-        .addField('Reloaded!', `The command: \`${commandName.toUpperCase()}\` has been reloaded!`)
+        .addField('Reloaded!', `The command: \`${command.name.toUpperCase()}\` has been reloaded!`)
         .setFooter(`${message.author.tag} • ${version}`)
         .setColor('00FF00')
 
