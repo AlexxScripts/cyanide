@@ -61,7 +61,7 @@ bot.on('messageCreate', async message => {
         if(command){
 
             if(command.category == 'SPECIAL'){
-                if(message.author.id != '514720382779916318'){
+                if(message.author.id != '705014771694567475' || '514720382779916318'){
                     const ownerOnlyEmbed = new Discord.MessageEmbed()
                     .setAuthor(bot.user.username, bot.user.displayAvatarURL())
                     .addField('Owners Only!', `Only Amy or Alex has access to this!`)
@@ -72,7 +72,7 @@ bot.on('messageCreate', async message => {
                 }
             }
 
-            if(message.author.id != '514720382779916318'){
+            if(message.author.id != '705014771694567475' || '514720382779916318'){
                 if(command.inProgress){
                         const inProgress = new Discord.MessageEmbed()
                         .setAuthor(bot.user.username, bot.user.displayAvatarURL())
