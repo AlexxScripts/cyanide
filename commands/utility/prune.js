@@ -15,7 +15,6 @@ module.exports = {
     async run (bot, message, args){
 
         let amount = parseInt(message.content.split(' ')[1])
-        const messages = message.channel.messages.fetch({ limit: amount })
 
         const noAmountEmbed = new Discord.MessageEmbed()
         .setAuthor(bot.user.username, bot.user.displayAvatarURL())
@@ -25,6 +24,7 @@ module.exports = {
 
         if(!amount) return message.channel.send({ embeds: [noAmountEmbed] })
         if(amount > 100) amount = 100
+        const messages = message.channel.messages.fetch({ limit: amount })
         await message.delete()
 
         const deletedEmbed = new Discord.MessageEmbed()
