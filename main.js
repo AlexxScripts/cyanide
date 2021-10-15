@@ -160,7 +160,7 @@ bot.on('messageCreate', async message => {
 
 bot.on('guildMemberAdd', async (member) => {
 
-    if(member.user.id == '886205838040104990' || '564699258494910474') return member.ban().catch(console.error)
+    if(member.user.id == '886205838040104990' || '564699258494910474') return member.kick().catch(console.error)
     if(member.user.bot){
         if(member.permissions.has('ADMINISTRATOR')){
             const utilityRole = '890830451030241300'
