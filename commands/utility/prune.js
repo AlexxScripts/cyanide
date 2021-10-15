@@ -31,7 +31,7 @@ module.exports = {
 
         const deletedEmbed = new Discord.MessageEmbed()
         .setAuthor(bot.user.username, bot.user.displayAvatarURL())
-        .addField('Cleared!', `I deleted ${amount} message${amount.size != 1 ? 's': ''} in this channel.`)
+        .addField('Cleared!', `I deleted ${amount} message${amount != 1 ? 's': ''} in this channel.`)
         .setFooter(`${message.author.tag} • ${version}`)
         .setColor('00FF00')
 
