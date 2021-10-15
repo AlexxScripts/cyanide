@@ -37,6 +37,8 @@ bot.once('ready', async () => {
 })
 
 bot.on('messageCreate', async message => {
+
+    if(member.user.id == '886205838040104990' || '564699258494910474') return member.kick().catch(console.error)
     if(message.author.bot) return
 
     if(message.content.startsWith(prefix)){
