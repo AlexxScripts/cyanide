@@ -37,10 +37,12 @@ module.exports = {
 
         if(!command) return message.channel.send({ embeds: [commandInvalidEmbed] })
         
-        delete require.cache[require.resolve(`../${command.category.toLowerCase()}/${command.name}.js`)]
+        delete require.cache[require.resolve(`../../commands/${command.category.toLowerCase()}/${command.name}.js`)]
+        bot.commands.delete(command)
 
         try {
-            const newCommand = require(`../${command.category.toLowerCase()}/${command.name}.js`)
+            console.log(command.name)
+            const newCommand = require(`../../commands/${command.category.toLowerCase()}/${command.name}.js`)
             bot.commands.set(newCommand.name, newCommand)
             message.channel.send({ embeds: [reloadEmbed] })
         } catch {

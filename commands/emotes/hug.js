@@ -41,6 +41,7 @@ module.exports = {
         .setFooter(`${message.author.tag} • ${version}`)
         .setColor('RANDOM')
 
-        message.channel.send({ embeds: [hugEmbed] })
+        // message.channel.send({ embeds: [hugEmbed] })
+        message.channel.send('strea')
     }
 }
