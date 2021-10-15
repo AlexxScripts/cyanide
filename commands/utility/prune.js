@@ -35,7 +35,10 @@ module.exports = {
         .setFooter(`${message.author.tag} • ${version}`)
         .setColor('00FF00')
 
-        message.channel.bulkDelete(amount).catch(console.error)
+        messages({ limit: amount }).then(filteredMessages => {
+            const messagesToPrune = filteredMessages.filter(msg => !msg.pinned)
+            return message.channel.bulkDelete(messagesToPrune, true).catch(console.error)
+        })
         message.channel.send({ embeds: [deletedEmbed] }).then((msg) => setTimeout(() => msg.delete(), 3000))
 
     }
