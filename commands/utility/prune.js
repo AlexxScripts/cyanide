@@ -15,7 +15,7 @@ module.exports = {
     async run (bot, message, args){
 
         let amount = parseInt(message.content.split(' ')[1])
-        const messages = message.channel.messages.fetch({ limit: amount })
+        const messages = message.channel.messages.fetch({ limit: amount + 1 })
 
         const noAmountEmbed = new Discord.MessageEmbed()
         .setAuthor(bot.user.username, bot.user.displayAvatarURL())
