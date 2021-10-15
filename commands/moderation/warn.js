@@ -7,7 +7,7 @@ module.exports = {
     name: 'warn',
     usage: `${prefix}warn [user] {reason}`,
     aliases: [],
-    inProgress: true,
+    inProgress: false,
     involvesModeration: true,
     permission: 'MANAGE_MESSAGES',
     category: 'MODERATION',
@@ -29,7 +29,6 @@ module.exports = {
                     UserTag: target.user.tag,
                     Content: [
                         {
-                            ModeratorID: message.author.id,
                             ModeratorTag: message.author.tag,
                             Reason: reason,
                             Date: date,
@@ -38,7 +37,6 @@ module.exports = {
                 })
             } else {
                 const obj = {
-                    ModeratorID: message.author.id,
                     ModeratorTag: message.author.tag,
                     Reason: reason,
                     Date: date,
