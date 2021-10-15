@@ -25,7 +25,6 @@ module.exports = {
 
         if(!amount) return message.channel.send({ embeds: [noAmountEmbed] })
         if(amount > 100) amount = 100
-        if(!messages) return
 
         const deletedEmbed = new Discord.MessageEmbed()
         .setAuthor(bot.user.username, bot.user.displayAvatarURL())
