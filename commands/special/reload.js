@@ -41,7 +41,7 @@ module.exports = {
 
         try {
             const newCommand = require(`../${command.category.toLowerCase()}/${command.name}.js`)
-            bot.commands.set(newCommand, newCommand)
+            bot.commands.set(newCommand.name, newCommand)
             message.channel.send({ embeds: [reloadEmbed] })
         } catch {
             message.channel.send({ embeds: [errorEmbed] })
