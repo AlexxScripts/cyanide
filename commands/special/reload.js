@@ -38,7 +38,7 @@ module.exports = {
         if(!command) return message.channel.send({ embeds: [commandInvalidEmbed] })
         
         delete require.cache[require.resolve(`../../commands/${command.category.toLowerCase()}/${command.name}.js`)]
-        bot.commands.delete(command)
+        bot.commands.delete(command.name)
 
         try {
             console.log(command.name)
