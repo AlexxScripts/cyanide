@@ -1,4 +1,5 @@
 const Discord = require('discord.js')
+const glob = require('glob')
 const { version, prefix } = require('../../config.json')
 
 module.exports = {
@@ -14,40 +15,41 @@ module.exports = {
 
     async run(bot, message ,args){
 
-        const commandName = args[0].toLowerCase()
-        const command = bot.commands.get(commandName) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName))
-
-        const commandInvalidEmbed = new Discord.MessageEmbed()
-        .setAuthor(bot.user.username, bot.user.displayAvatarURL())
-        .addField('Invalid Command!', 'Please specify a valid command for me to reload.')
-        .setFooter(`${message.author.tag} • ${version}`)
-        .setColor('FF0000')
-
-        const reloadEmbed = new Discord.MessageEmbed()
-        .setAuthor(bot.user.username, bot.user.displayAvatarURL())
-        .addField('Reloaded!', `The command: \`${command.name.toUpperCase()}\` has been reloaded!`)
-        .setFooter(`${message.author.tag} • ${version}`)
-        .setColor('00FF00')
+        // const commandName = args[0].toLowerCase()
+        // const command = bot.commands.get(commandName) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName))
 
         const errorEmbed = new Discord.MessageEmbed()
         .setAuthor(bot.user.username, bot.user.displayAvatarURL())
-        .addField('Error!', 'An error occurred trying to reload this command.')
+        .addField('Error!', 'An error occurred trying to reload commands.')
         .setFooter(`${message.author.tag} • ${version}`)
         .setColor('FF0000')
 
-        if(!command) return message.channel.send({ embeds: [commandInvalidEmbed] })
-        
-        delete require.cache[require.resolve(`../../commands/${command.category.toLowerCase()}/${command.name}.js`)]
-        bot.commands.delete(command.name)
+        glob(`${__dirname}/../**/*.js`, async (err, filePaths) => {
+            if(err) return message.channel.send({ embeds: [errorEmbed] })
+            bot.commands.sweep(() => true)
+            filePaths.forEach((file) => {
+                delete require.cache[require.resolve(file)]
+                const pull = require(file)
 
-        try {
-            console.log(command.name)
-            const newCommand = require(`../../commands/${command.category.toLowerCase()}/${command.name}.js`)
-            bot.commands.set(newCommand.name, newCommand)
-            message.channel.send({ embeds: [reloadEmbed] })
-        } catch {
-            message.channel.send({ embeds: [errorEmbed] })
-        }
+                if(pull.name){
+                    console.log(`Reloaded ${pull.name}`)
+                    bot.commands.set(pull.name, pull)
+                }
+                
+                if(pull.aliases && Array.isArray(pull.aliases)){
+                    pull.aliases.forEach((alias) => {
+                        bot.aliases.set(alias, pull.name)
+                    })
+                }
+            })
+        })
+
+        const reloadEmbed = new Discord.MessageEmbed()
+        .setAuthor(bot.user.username, bot.user.displayAvatarURL())
+        .addField('Reloaded!', `All commands have been reloaded!`)
+        .setFooter(`${message.author.tag} • ${version}`)
+        .setColor('00FF00')
+
+        message.channel.send({ embeds: [reloadEmbed] })
     }
-
 }

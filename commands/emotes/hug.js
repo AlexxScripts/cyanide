@@ -42,6 +42,6 @@ module.exports = {
         .setColor('RANDOM')
 
         // message.channel.send({ embeds: [hugEmbed] })
-        message.channel.send('stream')
+        message.channel.send('strasdfgsdgeam')
     }
 }
