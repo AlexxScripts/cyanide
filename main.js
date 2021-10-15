@@ -140,10 +140,10 @@ bot.on('messageCreate', async message => {
                     if(target.id == bot.user.id) return message.channel.send({ embeds: [harmMeEmbed] })
                     if(target.id == message.author.id) return message.channel.send({ embeds: [performActionOnSelfEmbed] })
 
-                    if(command.name != 'unmute' || 'kick' || 'ban'){
+                    if(command.name != 'unmute' || 'kick' || 'ban' || 'warn'){
                         if(target.permissions.has('ADMINISTRATOR')) return message.channel.send({ embeds: [ cannotHarmAdminEmbed ]})
                     }
-                    if(message.author.id != '514720382779916318'){
+                    if(message.author.id != '705014771694567475' || '514720382779916318'){
                         if(target.roles.highest.position >= message.member.roles.highest.position) return message.channel.send({ embeds: [involvesHierarchyEmbed] })
                     }
                     if(target.roles.highest.position >= message.guild.me.roles.highest.position) return message.channel.send({ embeds: [involvesHierarchyEmbed2] })
