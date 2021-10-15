@@ -15,7 +15,7 @@ module.exports = {
     async run (bot, message, args){
 
         let amount = parseInt(message.content.split(' ')[1])
-        const messages = message.channel.messages.fetch()
+        const messages = message.channel.messages.fetch({ limit: amount })
 
         const noAmountEmbed = new Discord.MessageEmbed()
         .setAuthor(bot.user.username, bot.user.displayAvatarURL())
@@ -35,7 +35,7 @@ module.exports = {
         .setFooter(`${message.author.tag} • ${version}`)
         .setColor('00FF00')
 
-        messages({ limit: amount }).then(filteredMessages => {
+        messages.then(filteredMessages => {
             const messagesToPrune = filteredMessages.filter(msg => !msg.pinned)
             return message.channel.bulkDelete(messagesToPrune, true).catch(console.error)
         })
