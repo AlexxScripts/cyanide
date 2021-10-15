@@ -49,7 +49,7 @@ bot.on('messageCreate', async message => {
         .addField('Options', `1️⃣ - <@&883189755041419325>\n2️⃣ - <@&883193744063610900>\n3️⃣ - <@&883190226846089246>\n4️⃣ - <@&898475785105571870>\n5️⃣ - <@&883190292994474045>\n6️⃣ - <@&883192866162229289>\n7️⃣ - <@&883193083402018836>\n8️⃣ - <@&883193219146448957>\n9️⃣ - <@&883190092255068190>`)
         .setFooter(`${version}`)
         .setColor('00FFFF')
-        bot.channels.cache.get('896779558399905813').send({ embeds: [embed] })
+        // bot.channels.cache.get('896779558399905813').send({ embeds: [embed] })
     }
 
     if(message.content.startsWith(prefix)){
