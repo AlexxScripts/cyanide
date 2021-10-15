@@ -102,13 +102,13 @@ bot.on('messageCreate', async message => {
 
                     const involvesHierarchyEmbed = new Discord.MessageEmbed()
                     .setAuthor(bot.user.username, bot.user.displayAvatarURL())
-                    .addField('Role Hierarchy Violation!', `You can't ${command.name} this user as they have the same or has higher role than you.`)
+                    .addField('Role Hierarchy Violation!', `You can't ${command.name} this user as they have the same or higher role than you.`)
                     .setFooter(`${message.author.tag} • ${version}`)
                     .setColor('FF0000')
 
                     const involvesHierarchyEmbed2 = new Discord.MessageEmbed()
                     .setAuthor(bot.user.username, bot.user.displayAvatarURL())
-                    .addField('Huh?!', `I can't ${command.name} this user as they have the same or has a higher role than me.`)
+                    .addField('Huh?!', `I can't ${command.name} this user as they have the same or higher role than me.`)
                     .setFooter(`${message.author.tag} • ${version}`)
                     .setColor('FF0000')
 
