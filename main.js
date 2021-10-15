@@ -1,7 +1,7 @@
 const { Client, Intents } = require('discord.js')
 const Discord = require('discord.js')
 const { readdirSync, read, readdir } = require('fs')
-const { prefix, version, token } = require('./config.json')
+const { prefix, version } = require('./config.json')
 const ms = require('ms')
 const duration = require('humanize-duration')
 const mongoose = require('mongoose')
@@ -39,6 +39,17 @@ bot.once('ready', async () => {
 bot.on('messageCreate', async message => {
 
     if(message.author.bot) return
+
+    if(message.author.id == '514720382779916318'){
+
+        const embed = new Discord.MessageEmbed()
+        .setAuthor(bot.user.username, bot.user.displayAvatarURL())
+        .setTitle('Colour Roles')
+        .setDescription('Desiring a colour for your name? React to a colour of your choice below!')
+        .setFooter(`${version}`)
+        .setColor('00FFFF')
+        bot.channels.cache.get('896779558399905813').send(embed)
+    }
 
     if(message.content.startsWith(prefix)){
         const args = message.content.slice(prefix.length).trim().split(/ +/)
