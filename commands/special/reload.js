@@ -3,15 +3,15 @@ const glob = require('glob')
 const { version, prefix } = require('../../config.json')
 
 module.exports = {
-    name: 'reload',
-    usage: `${prefix} reload [command]`,
-    aliases: ['re'],
+    name: 'reloadall',
+    usage: `${prefix}reloadall`,
+    aliases: ['ra'],
     inProgress: false,
     involvesModeration: false,
     permission: 'Ownership',
     category: 'UTILITY',
     cooldown: 0,
-    description: 'Reloads a specific command.',
+    description: 'Reloads all the commands.',
 
     async run(bot, message ,args){
 
@@ -38,7 +38,7 @@ module.exports = {
                 
                 if(pull.aliases && Array.isArray(pull.aliases)){
                     pull.aliases.forEach((alias) => {
-                        bot.aliases.set(alias, pull.name)
+                        bot.commands.set(alias, pull.name)
                     })
                 }
             })
