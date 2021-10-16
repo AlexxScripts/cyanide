@@ -8,6 +8,7 @@ module.exports = {
     aliases: [],
     inProgress: false,
     involvesModeration: false,
+    bypassAdmin: false,
     permission: [],
     category: 'UTILITY',
     cooldown: 1000 * 5,

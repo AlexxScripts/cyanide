@@ -8,6 +8,7 @@ module.exports = {
     aliases: ['delwarn'],
     inProgress: true,
     involvesModeration: false,
+    bypassAdmin: true,
     permission: 'MANAGE_MESSAGES',
     category: 'MODERATION',
     cooldown: 0,

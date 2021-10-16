@@ -42,14 +42,20 @@ bot.on('messageCreate', async message => {
 
     if(message.author.id == '514720382779916318'){
 
+        const channel = message.guild.channels.cache.get('896779558399905813')
+
         const embed = new Discord.MessageEmbed()
         .setAuthor(bot.user.username, bot.user.displayAvatarURL())
         .setTitle('Colour Roles')
         .setDescription('Desiring a colour for your name? React to a colour of your choice below!')
         .addField('Options', `1️⃣ - <@&883189755041419325>\n2️⃣ - <@&883193744063610900>\n3️⃣ - <@&883190226846089246>\n4️⃣ - <@&898475785105571870>\n5️⃣ - <@&883190292994474045>\n6️⃣ - <@&883192866162229289>\n7️⃣ - <@&883193083402018836>\n8️⃣ - <@&883193219146448957>\n9️⃣ - <@&883190092255068190>`)
-        .setFooter(`${version}`)
+        .setFooter(`${version} • PS: Want your own custom coloured role?`)
         .setColor('00FFFF')
         // bot.channels.cache.get('896779558399905813').send({ embeds: [embed] })
+        channel.messages.fetch('898482192005603348').then(message => {
+            message.edit({ embeds: [embed] })
+        })
+        
     }
 
     if(message.content.startsWith(prefix)){

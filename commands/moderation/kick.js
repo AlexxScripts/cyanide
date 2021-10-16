@@ -7,6 +7,7 @@ module.exports = {
     aliases: [],
     inProgress: true,
     involvesModeration: true,
+    bypassAdmin: true,
     permission: 'KICK_MEMBERS',
     category: 'MODERATION',
     cooldown: 0,

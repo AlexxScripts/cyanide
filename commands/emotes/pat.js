@@ -7,6 +7,7 @@ module.exports = {
     aliases: [],
     inProgress: true,
     involvesModeration: false,
+    bypassAdmin: false,
     permission: [],
     category: 'EMOTES',
     cooldown: 1000 * 5,

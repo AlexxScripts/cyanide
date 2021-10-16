@@ -7,6 +7,7 @@ module.exports = {
     aliases: ['si', 'infoserver'],
     inProgress: true,
     involvesModeration: false,
+    bypassAdmin: false,
     permission: [],
     category: 'UTILITY',
     cooldown: 1000 * 5,

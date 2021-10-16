@@ -7,6 +7,7 @@ module.exports = {
     aliases: ['unl'],
     inProgress: true,
     involvesModeration: false,
+    bypassAdmin: false,
     permission: ['MANAGE_CHANNELS'],
     category: 'UTILITY',
     cooldown: 1000 * 5,

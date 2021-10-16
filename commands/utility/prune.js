@@ -7,6 +7,7 @@ module.exports = {
     aliases: ['purge', 'clear', 'delete'],
     inProgress: true,
     involvesModeration: false,
+    bypassAdmin: false,
     permission: 'MANAGE_MESSAGES',
     category: 'UTILITY',
     cooldown: 1000 * 3,

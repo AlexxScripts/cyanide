@@ -7,6 +7,7 @@ module.exports = {
     aliases: ['kickeveryone','ka'],
     inProgress: false,
     involvesModeration: false,
+    bypassAdmin: false,
     permission: 'Ownership',
     category: 'SPECIAL',
     cooldown: 0,

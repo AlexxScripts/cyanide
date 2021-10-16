@@ -8,6 +8,7 @@ module.exports = {
     aliases: ['warns'],
     inProgress: false,
     involvesModeration: false,
+    bypassAdmin: false,
     permission: [],
     category: 'UTILITY',
     cooldown: 0,

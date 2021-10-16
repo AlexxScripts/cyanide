@@ -9,6 +9,7 @@ module.exports = {
     aliases: [],
     inProgress: false,
     involvesModeration: true,
+    bypassAdmin: true,
     permission: 'MANAGE_MESSAGES',
     category: 'MODERATION',
     cooldown: 0,

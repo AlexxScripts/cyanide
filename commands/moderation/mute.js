@@ -10,6 +10,7 @@ module.exports = {
     aliases: ['silence'],
     inProgress: false,
     involvesModeration: true,
+    bypassAdmin: false,
     permission: 'MANAGE_ROLES',
     category: 'MODERATION',
     cooldown: 0,

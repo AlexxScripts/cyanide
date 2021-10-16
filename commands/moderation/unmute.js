@@ -7,6 +7,7 @@ module.exports = {
     aliases: ['unsilence', 'unm'],
     inProgress: false,
     involvesModeration: true,
+    bypassAdmin: true,
     permission: 'MANAGE_ROLES',
     category: 'MODERATION',
     cooldown: 0,
