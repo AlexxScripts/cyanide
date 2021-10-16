@@ -19,6 +19,7 @@ module.exports = {
         db.findOne({ GuildID: message.guild.id, UserID: target.id, UserTag: target.user.tag }, async (err, data) => {
             if(err) throw err
             if(data){
+                console.log(data.Content.length)
                 let number = parseInt(args[1]) - 1
                 if(!parseInt(args[1])) return message.channel.send('what')
                 if(parseInt(args[1] > data.Content.length)) return message.channel.send('id does not exist')
