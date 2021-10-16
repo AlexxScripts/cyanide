@@ -141,6 +141,12 @@ bot.on('messageCreate', async message => {
                     .addField('Uh Oh!', `You can't ${command.name} an administrator!`)
                     .setFooter(`${message.author.tag} • ${version}`)
                     .setColor('FF0000')
+
+                    const cannotHarmOwners = new Discord.MessageEmbed()
+                    .setAuthor(bot.user.username, bot.user.displayAvatarURL())
+                    .addField('Really?', `You can't ${command.name} one of the owners!`)
+                    .setFooter(`${message.author.tag} • ${version}`)
+                    .setColor('FF0000')                    
         
                     if(!target) return message.channel.send({ embeds: [incorrectUsageEmbed] })
                     if(target.id == bot.user.id) return message.channel.send({ embeds: [harmMeEmbed] })
@@ -150,6 +156,9 @@ bot.on('messageCreate', async message => {
                         if(target.permissions.has('ADMINISTRATOR')) return message.channel.send({ embeds: [ cannotHarmAdminEmbed ]})
                     }
                     if(!message.member.roles.cache.has('897506296046161940')){
+                        if(target.roles.cache.has('897506296046161940')){
+                            return message.channel.send({ embeds: [cannotHarmOwners] })
+                        }
                         if(target.roles.highest.position >= message.member.roles.highest.position) return message.channel.send({ embeds: [involvesHierarchyEmbed] })
                     }
                     if(target.roles.highest.position >= message.guild.me.roles.highest.position) return message.channel.send({ embeds: [involvesHierarchyEmbed2] })
