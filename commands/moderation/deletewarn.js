@@ -19,7 +19,8 @@ module.exports = {
         db.findOne({ GuildID: message.guild.id, UserID: target.id, UserTag: target.user.tag }, async (err, data) => {
             if(err) throw err
             if(data){
-                data.Content.splice(args[1], 1)
+                if(!args[1]) return
+                data.Content.splice(args[1] + 1, 1)
                 data.save()
                 message.channel.send(`${args[1]} removed`)
             } else {
