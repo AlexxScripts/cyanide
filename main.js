@@ -52,9 +52,9 @@ bot.on('messageCreate', async message => {
         .setFooter(`${version} • PS: Want your own custom coloured role?`)
         .setColor('00FFFF')
         // bot.channels.cache.get('896779558399905813').send({ embeds: [embed] })
-        channel.messages.fetch('898482192005603348').then(message => {
-            message.edit({ embeds: [embed] })
-        })
+        // channel.messages.fetch('898482192005603348').then(message => {
+        //     message.edit({ embeds: [embed] })
+        // })
         
     }
 
@@ -146,7 +146,7 @@ bot.on('messageCreate', async message => {
                     if(target.id == bot.user.id) return message.channel.send({ embeds: [harmMeEmbed] })
                     if(target.id == message.author.id) return message.channel.send({ embeds: [performActionOnSelfEmbed] })
 
-                    if(command.name != 'unmute' || 'kick' || 'ban' || 'warn'){
+                    if(command.bypassAdmin == false){
                         if(target.permissions.has('ADMINISTRATOR')) return message.channel.send({ embeds: [ cannotHarmAdminEmbed ]})
                     }
                     if(!message.member.roles.cache.has('897506296046161940')){
