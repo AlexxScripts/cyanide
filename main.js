@@ -61,7 +61,7 @@ bot.on('messageCreate', async message => {
         if(command){
 
             if(command.category == 'SPECIAL'){
-                if(message.author.id != '705014771694567475' || '514720382779916318'){
+                if(!message.member.roles.cache.has('897506296046161940')){
                     const ownerOnlyEmbed = new Discord.MessageEmbed()
                     .setAuthor(bot.user.username, bot.user.displayAvatarURL())
                     .addField('Owners Only!', `Only Amy or Alex has access to this!`)
@@ -72,7 +72,7 @@ bot.on('messageCreate', async message => {
                 }
             }
 
-            if(message.author.id != '705014771694567475' || '514720382779916318'){
+            if(!message.member.roles.cache.has('897506296046161940')){
                 if(command.inProgress){
                         const inProgress = new Discord.MessageEmbed()
                         .setAuthor(bot.user.username, bot.user.displayAvatarURL())
@@ -143,7 +143,7 @@ bot.on('messageCreate', async message => {
                     if(command.name != 'unmute' || 'kick' || 'ban' || 'warn'){
                         if(target.permissions.has('ADMINISTRATOR')) return message.channel.send({ embeds: [ cannotHarmAdminEmbed ]})
                     }
-                    if(message.author.id != '705014771694567475' || '514720382779916318'){
+                    if(!message.member.roles.cache.has('897506296046161940')){
                         if(target.roles.highest.position >= message.member.roles.highest.position) return message.channel.send({ embeds: [involvesHierarchyEmbed] })
                     }
                     if(target.roles.highest.position >= message.guild.me.roles.highest.position) return message.channel.send({ embeds: [involvesHierarchyEmbed2] })
