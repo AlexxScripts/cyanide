@@ -46,10 +46,10 @@ module.exports = {
                 let number = parseInt(args[1]) - 1
                 if(!parseInt(args[1])) return message.channel.send({ embeds: [invalidIdEmbed] })
                 if(parseInt(args[1]) > data.Content.length) return message.channel.send({ embeds: [invalidIdEmbed] })
-                
+
                 const deletedWarnEmbed = new Discord.MessageEmbed()
                 .setAuthor(bot.user.username, bot.user.displayAvatarURL())
-                .addField('Success!', `I deleted the warning of ${target.tag} with the ID: ${args[1]}`)
+                .addField('Success!', `I deleted the warning of ${target.user.tag} with the ID: ${args[1]}`)
                 .setFooter(`${message.author.tag} • ${version}`)
                 .setColor('00FF00')
 
