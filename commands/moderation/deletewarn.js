@@ -30,11 +30,18 @@ module.exports = {
 
         const invalidIdEmbed = new Discord.MessageEmbed()
         .setAuthor(bot.user.username, bot.user.displayAvatarURL())
-        .addField('Invalid!', 'That ID does not exist!')
+        .addField('Invalid!', 'That ID does not exist.')
+        .setFooter(`${message.author.tag} • ${version}`)
+        .setColor('FF0000')
+
+        const benefitYourself = new Discord.MessageEmbed()
+        .setAuthor(bot.user.username, bot.user.displayAvatarURL())
+        .addField('That\'s Illegal!', 'You can\'t delete your own warnings.')
         .setFooter(`${message.author.tag} • ${version}`)
         .setColor('FF0000')
 
         if(!target) return message.channel.send({ embeds: [noTargetEmbed] })
+        if(target.id == message.author.id) return message.channel.send({ embeds: [benefitYourself] })
 
         db.findOne({ GuildID: message.guild.id, UserID: target.id, UserTag: target.user.tag }, async (err, data) => {
             if(err) throw err
