@@ -21,7 +21,7 @@ module.exports = {
             if(data){
                 let number = parseInt(args[1]) - 1
                 if(!parseInt(args[1])) return message.channel.send('what')
-                data.Content.splice(number, 1).catch((err) => { message.channel.send('error') })
+                data.Content.splice(number, 1)
                 data.save()
                 message.channel.send(`${args[1]} removed`)
             } else {
