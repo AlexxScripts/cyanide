@@ -39,6 +39,15 @@ module.exports = {
         db.findOne({ GuildID: message.guild.id, UserID: target.id, UserTag: target2.tag }, async (err, data) => {
             if(err) throw err
             if(data){
+                if(data.Content.length == 0){
+                    const warningsEmbed2 = new Discord.MessageEmbed()
+                    .setAuthor(bot.user.username, bot.user.displayAvatarURL())
+                    .setTitle(`${thisuserhas} no warnings.`)
+                    .setFooter(`${message.author.tag} • ${version}`)
+                    .setColor('RANDOM')
+                    message.channel.send({ embeds: [warningsEmbed2] })
+                    return
+                }
 
                 const warningsEmbed = new Discord.MessageEmbed()
                 .setAuthor(bot.user.username, bot.user.displayAvatarURL())
