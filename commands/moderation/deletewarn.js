@@ -15,5 +15,6 @@ module.exports = {
 
     async run(bot, message, args){
         num++
+        message.channel.send(num)
     }
 }
