@@ -22,7 +22,7 @@ module.exports = {
                 console.log(data.Content.length)
                 let number = parseInt(args[1]) - 1
                 if(!parseInt(args[1])) return message.channel.send('what')
-                if(parseInt(args[1] > data.Content.length)) return message.channel.send('id does not exist')
+                if(parseInt(args[1]) > data.Content.length) return message.channel.send('id does not exist')
 
                 data.Content.splice(number, 1)
                 data.save()
