@@ -24,7 +24,7 @@ bot.once('ready', async () => {
     const files = bot.commands.map((e) => e.name)
     console.log(files)
     console.log(`${bot.commands.size} commands initialized!`)
-    bot.channels.cache.get('896795906446336061').send(`Online!`)
+    console.log(agbk)
 
     mongoose.connect(process.env.mongoURI, {
         useNewUrlParser: true,
