@@ -21,11 +21,9 @@ module.exports = {
             if(data){
                 let number = parseInt(args[1]) - 1
                 if(!parseInt(args[1])) return message.channel.send('what')
-                try {
-                    data.Content.splice(number, 1)
-                } catch {
-                    message.channel.send('yes')
-                }
+                if(parseInt(args[1] > data.Content.length)) return message.channel.send('id does not exist')
+
+                data.Content.splice(number, 1)
                 data.save()
                 message.channel.send(`${args[1]} removed`)
             } else {
