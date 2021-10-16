@@ -30,7 +30,7 @@ module.exports = {
 
         const invalidIdEmbed = new Discord.MessageEmbed()
         .setAuthor(bot.user.username, bot.user.displayAvatarURL())
-        .setTitle('Invalid!', 'That ID does not exist!')
+        .addField('Invalid!', 'That ID does not exist!')
         .setFooter(`${message.author.tag} • ${version}`)
         .setColor('FF0000')
 
