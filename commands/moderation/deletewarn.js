@@ -19,6 +19,7 @@ module.exports = {
         db.findOne({ GuildID: message.guild.id, UserID: target.id, UserTag: target.user.tag }, async (err, data) => {
             if(err) throw err
             if(data){
+                console.log(data.Content.length)
                 if(data.Content.length == 1){
                     db.findOneAndDelete({ GuildID: message.guild.id, UserID: target.id, UserTag: target.user.tag })
                     message.channel.send(`${args[1]} removed`)
