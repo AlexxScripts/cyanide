@@ -36,16 +36,17 @@ module.exports = {
             }
         }
 
+        const noWarningsEmbed = new Discord.MessageEmbed()
+        .setAuthor(bot.user.username, bot.user.displayAvatarURL())
+        .setTitle(`${thisuserhas} no warnings.`)
+        .setFooter(`${message.author.tag} • ${version}`)
+        .setColor('FFFF00')
+
         db.findOne({ GuildID: message.guild.id, UserID: target.id, UserTag: target2.tag }, async (err, data) => {
             if(err) throw err
             if(data){
                 if(data.Content.length == 0){
-                    const warningsEmbed2 = new Discord.MessageEmbed()
-                    .setAuthor(bot.user.username, bot.user.displayAvatarURL())
-                    .setTitle(`${thisuserhas} no warnings.`)
-                    .setFooter(`${message.author.tag} • ${version}`)
-                    .setColor('RANDOM')
-                    message.channel.send({ embeds: [warningsEmbed2] })
+                    message.channel.send({ embeds: [noWarningsEmbed] })
                     return
                 }
 
@@ -56,18 +57,13 @@ module.exports = {
                     (w, i) => `\`\`\`Warn ID: ${i + 1}\nModerator: ${w.ModeratorTag}\nReason: ${w.Reason}\nDate: ${w.Date}\n\n\`\`\``
                 ).join('\n')}`)
                 .setFooter(`${message.author.tag} • ${version}`)
-                .setColor('RANDOM')
+                .setColor('FFFF00')
 
 
                 message.channel.send({ embeds: [warningsEmbed] })
-            } else {
 
-                const warningsEmbed2 = new Discord.MessageEmbed()
-                .setAuthor(bot.user.username, bot.user.displayAvatarURL())
-                .setTitle(`${thisuserhas} no warnings.`)
-                .setFooter(`${message.author.tag} • ${version}`)
-                .setColor('RANDOM')
-                message.channel.send({ embeds: [warningsEmbed2] })
+            } else {
+                message.channel.send({ embeds: [noWarningsEmbed] })
             }
         })
     }

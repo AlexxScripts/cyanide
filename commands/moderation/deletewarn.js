@@ -16,19 +16,48 @@ module.exports = {
     async run(bot, message, args){
         const target = message.mentions.members.first() || message.guild.members.cache.get(args[0])
 
+        const noTargetEmbed = new Discord.MessageEmbed()
+        .setAuthor(bot.user.username, bot.user.displayAvatarURL())
+        .addField('No User!', 'Please specify a valid user.')
+        .setFooter(`${message.author.tag} • ${version}`)
+        .setColor('FF0000')
+
+        const noWarningsEmbed = new Discord.MessageEmbed()
+        .setAuthor(bot.user.username, bot.user.displayAvatarURL())
+        .addField('Hmm?', `No warnings to delete.`)
+        .setFooter(`${message.author.tag} • ${version}`)
+        .setColor('FF0000')
+
+        const invalidIdEmbed = new Discord.MessageEmbed()
+        .setAuthor(bot.user.username, bot.user.displayAvatarURL())
+        .setTitle('Invalid!', 'That ID does not exist!')
+        .setFooter(`${message.author.tag} • ${version}`)
+        .setColor('FF0000')
+
+        if(!target) return message.channel.send({ embeds: [noTargetEmbed] })
+
         db.findOne({ GuildID: message.guild.id, UserID: target.id, UserTag: target.user.tag }, async (err, data) => {
             if(err) throw err
             if(data){
-                console.log(data.Content.length)
+                if(data.Content.length == 0){
+                    message.channel.send({ embeds: [noWarningsEmbed] })
+                    return
+                }
                 let number = parseInt(args[1]) - 1
-                if(!parseInt(args[1])) return message.channel.send('what')
-                if(parseInt(args[1]) > data.Content.length) return message.channel.send('id does not exist')
+                if(!parseInt(args[1])) return message.channel.send({ embeds: [invalidIdEmbed] })
+                if(parseInt(args[1]) > data.Content.length) return message.channel.send({ embeds: [invalidIdEmbed] })
+                
+                const deletedWarnEmbed = new Discord.MessageEmbed()
+                .setAuthor(bot.user.username, bot.user.displayAvatarURL())
+                .addField('Success!', `I deleted the warning of ${target.tag} with the ID: ${args[1]}`)
+                .setFooter(`${message.author.tag} • ${version}`)
+                .setColor('00FF00')
 
                 data.Content.splice(number, 1)
                 data.save()
-                message.channel.send(`${args[1]} removed`)
+                message.channel.send({ embeds: [deletedWarnEmbed] })
             } else {
-                messsage.channel.send('no warnings')
+                message.channel.send({ embeds: [noWarningsEmbed] })
             }
         })
     }
