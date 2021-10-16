@@ -19,7 +19,7 @@ module.exports = {
         db.findOne({ GuildID: message.guild.id, UserID: target.id, UserTag: target.user.tag }, async (err, data) => {
             if(err) throw err
             if(data){
-                console.log(data.content.length)
+                console.log(data.content.size)
                 let number = parseInt(args[1]) - 1
                 data.Content.splice(number, 1)
                 data.save()
