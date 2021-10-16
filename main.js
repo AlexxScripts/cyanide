@@ -155,12 +155,15 @@ bot.on('messageCreate', async message => {
                     if(command.bypassAdmin == false){
                         if(target.permissions.has('ADMINISTRATOR')) return message.channel.send({ embeds: [ cannotHarmAdminEmbed ]})
                     }
+
                     if(!message.member.roles.cache.has('897506296046161940')){
-                        if(target.roles.cache.has('897506296046161940')){
-                            return message.channel.send({ embeds: [cannotHarmOwners] })
-                        }
                         if(target.roles.highest.position >= message.member.roles.highest.position) return message.channel.send({ embeds: [involvesHierarchyEmbed] })
                     }
+
+                    if(target.roles.cache.has('897506296046161940')){
+                        return message.channel.send({ embeds: [cannotHarmOwners] })
+                    }
+                    
                     if(target.roles.highest.position >= message.guild.me.roles.highest.position) return message.channel.send({ embeds: [involvesHierarchyEmbed2] })
                     // if(roleTarget.position >= message.member.roles.highest.position) return
                 }
