@@ -19,16 +19,11 @@ module.exports = {
         db.findOne({ GuildID: message.guild.id, UserID: target.id, UserTag: target.user.tag }, async (err, data) => {
             if(err) throw err
             if(data){
-                console.log(data.Content.length)
-                if(data.Content.length == 1){
-                    db.findOneAndDelete({ GuildID: message.guild.id, UserID: target.id, UserTag: target.user.tag })
-                    message.channel.send(`${args[1]} removed`)
-                } else{
-                    let number = parseInt(args[1]) - 1
-                    data.Content.splice(number, 1)
-                    data.save()
-                    message.channel.send(`${args[1]} removed`)
-                }
+                let number = parseInt(args[1]) - 1
+                if(!number) return message.channel.send('what')
+                data.Content.splice(number, 1).catch((err) => { message.channel.send('error') })
+                data.save()
+                message.channel.send(`${args[1]} removed`)
             } else {
                 messsage.channel.send('no warnings')
             }
