@@ -24,7 +24,6 @@ bot.once('ready', async () => {
     const files = bot.commands.map((e) => e.name)
     console.log(files)
     console.log(`${bot.commands.size} commands initialized!`)
-    console.log(agbk)
 
     mongoose.connect(process.env.mongoURI, {
         useNewUrlParser: true,
