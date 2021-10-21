@@ -24,7 +24,7 @@ module.exports = {
         .setFooter(`${message.author.tag} • ${version}`)
         .setColor('FF0000')
 
-        if(channel) return message.channel.send({ embeds: [notInChannelEmbed] })
+        if(!channel) return message.channel.send({ embeds: [notInChannelEmbed] })
         if(!song) return message.channel.send('die')
 
         music.play({
