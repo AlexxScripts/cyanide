@@ -19,6 +19,7 @@ module.exports = {
         const moderationFiles = bot.commands.filter((cmd) => cmd.category == 'MODERATION')
         const utilityFiles = bot.commands.filter((cmd) => cmd.category == 'UTILITY')
         const emotesFiles = bot.commands.filter((cmd) => cmd.category == 'EMOTES')
+        const withoutSpecialFiles = bot.commands.filter((cmd) => cmd.category =! 'SPECIAL')
 
         const moderationFiles2 = moderationFiles.map((e) => e.name)
         const utilityFiles2 = utilityFiles.map((e) => e.name)
@@ -35,7 +36,7 @@ module.exports = {
         .addField(`Moderation (${moderationFiles.size})`, `\`\`\`\n${moderationFiles3}\`\`\``)
         .addField(`Utility (${utilityFiles.size})`, `\`\`\`\n${utilityFiles3}\`\`\``)
         .addField(`Emotes (${emotesFiles.size})`, `\`\`\`\n${emotesFiles3}\`\`\``)
-        .setFooter(`${message.author.tag} • ${version} • Total Commands: ${bot.commands.size}`)
+        .setFooter(`${message.author.tag} • ${version} • Total Commands: ${withoutSpecialFiles.size}`)
         .setColor('FFFF00')
 
 
