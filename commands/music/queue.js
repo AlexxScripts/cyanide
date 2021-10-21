@@ -3,8 +3,8 @@ const { version, prefix } = require('../../config.json')
 const music = require('@koenie06/discord.js-music')
 
 module.exports = {
-    name: 'play',
-    usage: `${prefix}play [URL/Name]`,
+    name: 'queue',
+    usage: `${prefix}queue`,
     aliases: [],
     inProgress: true,
     involvesModeration: false,
