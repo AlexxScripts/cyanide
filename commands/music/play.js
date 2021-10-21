@@ -15,7 +15,7 @@ module.exports = {
     description: 'Play music.',
 
     async run (bot, message, args){
-        const song = args.slice(1).join(' ')
+        const song = args.join(' ')
         const channel = message.member.voice.channel
 
         const notInChannelEmbed = new Discord.MessageEmbed()
