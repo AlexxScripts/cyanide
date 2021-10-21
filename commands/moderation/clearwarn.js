@@ -18,7 +18,7 @@ module.exports = {
         const target = message.mentions.members.first() || message.guild.members.cache.get(args[0])
 
         db.findOne({ guildID: message.guild.id, userID: target.id, userTag: target.user.tag }, async (err, data) => {
-
+            db.findOneAndDelete({ guildID: message.guild.id, userID: target.id, userTag: target.user.tag })
         })
 
         const noTargetEmbed = new Discord.MessageEmbed()
