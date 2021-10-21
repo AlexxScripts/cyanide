@@ -9,6 +9,7 @@
   "author": "alexium_",
   "license": "ISC",
   "dependencies": {
+    "@koenie06/discord.js-music": "^1.2.9",
     "discord.js": "^13.1.0",
     "fs": "^0.0.1-security",
     "glob": "^7.2.0",

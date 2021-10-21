@@ -1,5 +1,6 @@
 const Discord = require('discord.js')
 const { version, prefix } = require('../../config.json')
+const db = require('../../models/warningdb')
 
 module.exports = {
     name: 'clearwarn',

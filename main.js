@@ -5,7 +5,7 @@ const { prefix, version } = require('./config.json')
 const ms = require('ms')
 const duration = require('humanize-duration')
 const mongoose = require('mongoose')
-const bot = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, "GUILD_MEMBERS"] })
+const bot = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_VOICE_STATES, "GUILD_MEMBERS"] })
 const commandFolders = readdirSync('./commands')
 const commandTimeout = new Discord.Collection()
 
