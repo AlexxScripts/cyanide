@@ -66,6 +66,15 @@ bot.on('messageCreate', async message => {
         if(command){
 
             if(command.category == 'SPECIAL'){
+                if(command.name == 'custom-music'){
+
+                    const notAlexEmbed = new Discord.MessageEmbed()
+                    .setAuthor(bot.user.username, bot.user.displayAvatarURL())
+                    .addField('Not my creator!', 'This command is made especially for my creator.')
+                    .setFooter(`${message.author.tag} • ${version}`)
+                    .setColor('FF0000')
+                    if(message.author.id =! '514720382779916318') return message.channel.send({ embeds: [notAlexEmbed] })
+                }
                 if(!message.member.roles.cache.has('897506296046161940')){
                     const ownerOnlyEmbed = new Discord.MessageEmbed()
                     .setAuthor(bot.user.username, bot.user.displayAvatarURL())
