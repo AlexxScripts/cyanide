@@ -16,6 +16,7 @@ module.exports = {
 
     async run (bot, message, args){
         const song = parseInt(args[1])
+        if(!song) return
         let song2
         const channel = message.member.voice.channel
 

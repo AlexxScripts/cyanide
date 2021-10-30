@@ -75,13 +75,14 @@ bot.on('messageCreate', async message => {
                     .setColor('FF0000')
                     if(message.author.id =! '514720382779916318') return message.channel.send({ embeds: [notAlexEmbed] })
                 }
+
                 if(!message.member.roles.cache.has('897506296046161940')){
-                    const ownerOnlyEmbed = new Discord.MessageEmbed()
+                    const ownersOnlyEmbed = new Discord.MessageEmbed()
                     .setAuthor(bot.user.username, bot.user.displayAvatarURL())
-                    .addField('Owners Only!', `Only Amy or Alex has access to this!`)
+                    .addField('Owners Only!', `Only Alex, Amy, or Marc has access to this!`)
                     .setFooter(`${message.author.tag} • ${version}`)
                     .setColor('FF0000')
-                    message.channel.send({ embeds: [ownerOnlyEmbed] })
+                    message.channel.send({ embeds: [ownersOnlyEmbed] })
                     return
                 }
             }
